@@ -1,0 +1,11 @@
+@import "syntax-variables";
+
+.indent-guide-improved {
+  background-color: @syntax-invisible-character-color;
+  &.indent-guide-stack {
+    background-color: lighten(@syntax-invisible-character-color, 10%);
+    &.indent-guide-active {
+      background-color: @syntax-indent-guide-color;
+    }
+  }
+}

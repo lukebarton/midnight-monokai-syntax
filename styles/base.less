@@ -1,0 +1,407 @@
+@import "syntax-variables";
+
+atom-text-editor, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .cursor-line {
+    background-color: lighten(@syntax-background-color, 2%)
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+}
+
+atom-text-editor .search-results .marker .region,
+:host .search-results .marker .region {
+  background-color: transparent;
+  border: 1px solid @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region,
+:host .search-results .marker.current-result .region {
+  border: 1px solid @syntax-result-marker-color-selected;
+}
+
+.comment {
+  color: @syntax-comment-color;
+}
+
+.keyword {
+  color: @magenta;
+
+  &.control {
+    color: @magenta;
+  }
+
+  &.operator {
+    color: @syntax-text-color;
+
+    &.logical {
+      color: @magenta;
+    }
+    &.bitwise {
+      color: @orange;
+    }
+  }
+
+  &.other.special-method {
+    color: @blue; //TODO
+  }
+
+  &.other.unit {
+    color: @orange; //TODO
+  }
+}
+
+.storage {
+  color: @magenta;
+
+  &.type.function {
+    color: @cyan;
+  }
+}
+
+.constant {
+  color: @purple;
+
+  &.character.escape {
+    color: @cyan;
+  }
+
+  &.numeric {
+    color: @yellow;
+  }
+
+  &.other.color {
+    color: @cyan; //TODO
+  }
+
+  &.other.symbol {
+    color: @green; //TODO
+  }
+}
+
+.variable {
+  color: @syntax-text-color;
+
+  &.interpolation {
+    color: darken(@red, 10%); //TODO
+  }
+
+  &.parameter.function {
+    color: @syntax-text-color; //TODO
+  }
+}
+
+.invalid.illegal {
+  background-color: @red; //TODO
+  color: @syntax-background-color; //TODO
+}
+
+.string {
+  color: @orange;
+
+  &.regexp {
+    color: @orange; //TODO
+
+    .escape {
+      color: lighten(@orange, 15%);
+    }
+
+    .source.ruby.embedded {
+      color: @orange; //TODO
+    }
+  }
+
+  &.other.link {
+    color: @red; // TODO
+  }
+}
+
+.punctuation {
+  &.definition {
+    &.comment {
+      color: @syntax-comment-color;
+    }
+
+    &.string {
+      color: @syntax-string-color;
+    }
+
+    &.variable,
+    &.parameters,
+    &.array {
+      color: @syntax-text-color;
+    }
+
+    &.heading,
+    &.identity {
+      color: @blue; //TODO
+    }
+
+    &.bold {
+      color: @light-orange; //TODO
+      font-weight: bold;
+    }
+
+    &.italic {
+      color: @purple; //TODO
+      font-style: italic;
+    }
+
+    &.any-method {
+      color: @blue; //TODO
+    }
+  }
+}
+
+.entity {
+  &.name.function {
+    color: @green;
+  }
+  &.name.type {
+    color: @light-orange; //TODO
+  }
+
+  &.other.inherited-class {
+    color: @green; //TODO
+  }
+  &.name.class, &.name.type.class {
+    color: @green; //TODO
+  }
+
+  &.name.section {
+    color: @blue; //TODO
+  }
+
+  &.name.tag {
+    color: @green; //TODO
+  }
+
+  &.other.attribute-name {
+    color: @syntax-text-color; //TODO
+
+    &.id {
+      color: @blue; //TODO
+    }
+  }
+}
+
+.meta {
+  &.class {
+    color: @light-orange; //TODO
+  }
+
+  &.link {
+    color: @orange; //TODO
+  }
+
+  &.require {
+    color: @magenta; //TODO
+  }
+
+  &.selector {
+    color: @purple; //TODO
+  }
+
+  &.separator {
+    background-color: @gray; //TODO
+    color: @syntax-text-color; //TODO
+  }
+  &.parameters .variable {
+    color: @light-orange;
+    font-style: italic;
+  }
+}
+
+.none {
+  color: @syntax-text-color; //TODO
+}
+
+.markup {
+  &.bold {
+    color: @orange; //TODO
+    font-weight: bold;
+  }
+
+  &.changed {
+    color: @purple; //TODO
+  }
+
+  &.deleted {
+    color: @red; //TODO
+  }
+
+  &.italic {
+    color: @purple; //TODO
+    font-style: italic;
+  }
+
+  &.heading .punctuation.definition.heading {
+    color: @blue; //TODO
+  }
+
+  &.inserted {
+    color: @green; //TODO
+  }
+
+  &.list {
+    color: @red; //TODO
+  }
+
+  &.quote {
+    color: @orange; //TODO
+  }
+
+  &.raw.inline {
+    color: @green; //TODO
+  }
+}
+
+.css {
+  &.entity.other.parent-selector {
+    color: @magenta;
+  }
+  &.entity.other.class {
+    color: @green;
+  }
+}
+
+.js {
+
+  &.support.function {
+    color: @green;
+  }
+
+  &.support.constant {
+    color: @syntax-text-color;
+  }
+
+  &.variable.language.import-all {
+      color: @syntax-text-color;
+  }
+
+
+  &.string.quoted.template {
+    .embedded.source {
+      color: lighten(@orange, 15%);
+    }
+  }
+
+  &.meta.control {
+    &.yield {
+      font-style: italic;
+    }
+  }
+
+  &.storage.type.function {
+    color: @cyan;
+  }
+
+  &.support.class,
+  &.entity.object.console {
+    text-decoration: underline;
+    color: @syntax-text-color;
+  }
+
+  &.entity.inherited-class,
+  &.entity.class {
+    color: @green;
+    text-decoration: underline;
+  }
+
+  &.keyword.operator.new {
+    color: @magenta;
+  }
+
+  &.entity.name.type.instance {
+    color: @green;
+    text-decoration: underline;
+  }
+}
+
+.xml, .html {
+  &.entity.other.attribute-name {
+    color: @purple;
+  }
+  &.entity.tag {
+    color: @green;
+  }
+  &.punctuation.definition.tag {
+    color: @syntax-text-color;
+  }
+
+  &.text {
+    color: @syntax-text-color;
+  }
+}
+
+.php {
+  &.support.function {
+    color: @green;
+    text-decoration: underline;
+  }
+  &.keyword.operator.class {
+    color: darken(@syntax-text-color, 20%);
+  }
+
+  &.meta.function-call {
+    color: @green;
+  }
+}
+
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+  &.heading {
+    color: @green; //TODO
+  }
+}
+
+atom-text-editor[mini] .scroll-view,
+:host([mini]) .scroll-view {
+  padding-left: 1px;
+}
