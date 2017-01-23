@@ -394,6 +394,12 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 
 .php {
+  &.phpdoc {
+    color: @syntax-comment-color;
+    &.keyword {
+      text-decoration: underline;
+    }
+  }
   &.support.function {
     color: @green;
     text-decoration: underline;
